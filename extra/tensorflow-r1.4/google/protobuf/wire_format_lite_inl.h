@@ -275,7 +275,7 @@ inline bool WireFormatLite::ReadRepeatedFixedSizePrimitive(
     const int per_value_size = tag_size + sizeof(value);
 
     int elements_available =
-        std::min(values->Capacity() - values->size(), size / per_value_size);
+        (std::min)(values->Capacity() - values->size(), size / per_value_size);
     int num_read = 0;
     while (num_read < elements_available &&
            (buffer = io::CodedInputStream::ExpectTagFromArray(
@@ -367,7 +367,7 @@ inline bool WireFormatLite::ReadPackedFixedSizePrimitive(
     bytes_limit = input->BytesUntilLimit();
   } else {
     bytes_limit =
-        std::min(bytes_limit, static_cast<int64>(input->BytesUntilLimit()));
+        (std::min)(bytes_limit, static_cast<int64>(input->BytesUntilLimit()));
   }
   if (bytes_limit >= new_bytes) {
     // Fast-path that pre-allocates *values to the final size.

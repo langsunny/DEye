@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-G:\SAE\DEye\build\vc14\GUI\obj\Release\
+G:\github\DEye\build\vc14\GUI\obj\Release\
 GUI
 none
 false
 TRACE
-G:\SAE\DEye\build\vc14\GUI\App.xaml
+G:\github\DEye\build\vc14\GUI\App.xaml
 11151548125
 
-9-2136239223
+9-822513039
 131254293103
 MainWindow.xaml;
 

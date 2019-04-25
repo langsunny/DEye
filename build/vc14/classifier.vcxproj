@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\app\classifier\classifier.cc" />
+    <ClCompile Include="..\..\app\classifier\classifier.cc">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
     <ClCompile Include="..\..\app\classifier\mainBigBlob.cc" />
     <ClCompile Include="..\..\app\classifier\tensorGen.cc" />
     <ClCompile Include="..\..\extra\others\libconvert.cpp" />
@@ -84,9 +86,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetExt>.dll</TargetExt>
     <OutDir>..\bin</OutDir>
+    <IncludePath>D:\OpenCV\opencv\build\include;D:\OpenCV\opencv\build\include\opencv;D:\OpenCV\opencv\build\include\opencv2;$(IncludePath)</IncludePath>
+    <LibraryPath>d:\OpenCV\opencv\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>..\..\bin\</OutDir>
+    <IncludePath>D:\glog-0.3.5\src\windows;D:\OpenCV\opencv\build\include\opencv2;D:\OpenCV\opencv\build\include\opencv;D:\OpenCV\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\glog-0.3.5\x64\Debug;D:\OpenCV\opencv\build\x64\vc14\lib;$(LibraryPath)</LibraryPath>
+    <SourcePath>D:\OpenCV\opencv\build\include\opencv2;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -115,8 +122,8 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\extra\cnn_lib\mvbi_cnn_lib\;..\..\extra\HIK_CUDA\lib;..\..\extra\opencv3\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libHIK_CUDA.lib;cudnn.lib;cublas.lib;cudart.lib;CNN_LIB_gpu_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\extra\cnn_lib\mvbi_cnn_lib\;..\..\extra\HIK_CUDA\lib;..\..\extra\opencv3\lib\;D:\OpenCV\opencv\build\x64\vc14\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_world346.lib;opencv_world346d.lib;libHIK_CUDA.lib;cudnn.lib;cublas.lib;cudart.lib;CNN_LIB_gpu_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>..\bin\$(ProjectName).dll</OutputFile>
     </Link>
   </ItemDefinitionGroup>
@@ -144,21 +151,21 @@
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\extra\others;$(OPENCV340)\include;..\..\extra\tensorflow-r1.4\external\nsync\public;..\..\extra\tensorflow-r1.4;..\..\extra\tensorflow-r1.4\external\zlib_archive;..\..\extra\tensorflow-r1.4\external\gif_archive\giflib-5.1.4;..\..\extra\tensorflow-r1.4\external\png_archive;..\..\extra\tensorflow-r1.4\external\eigen_archive;..\..\extra\tensorflow-r1.4\external\jpeg_archive;..\..\extra\tensorflow-r1.4\third_party\eigen3;..\..\extra\tensorflow-r1.4\gemmlowp\src\gemmlowp;..\..\extra\tensorflow-r1.4\jsoncpp\src\jsoncpp;..\..\extra\tensorflow-r1.4\external\farmhash_archive;..\..\extra\tensorflow-r1.4\external\farmhash_archive\util;..\..\extra\tensorflow-r1.4\external\highwayhash;..\..\extra\tensorflow-r1.4\third_party\gpus;..\..\extra\tensorflow-r1.4\tensorflow\contrib\cmake\build\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_ITERATOR_DEBUG_LEVEL=0;EIGEN_AVOID_STL_ARRAY;NOMINMAX;_WIN32_WINNT=0x0A00;LANG_CXX11;COMPILER_MSVC;OS_WIN;_MBCS;WIN64;WIN32_LEAN_AND_MEAN;NOGDI;PLATFORM_WINDOWS;TENSORFLOW_USE_EIGEN_THREADPOOL;EIGEN_HAS_C99_MATH;TF_COMPILE_LIBRARY;GOOGLE_CUDA=1;TF_EXTRA_CUDA_CAPABILITIES=3.0,3.5,5.2;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\glog-0.3.5\src\windows;..\..\extra\others;$(OPENCV340)\include;..\..\extra\tensorflow-r1.4\external\nsync\public;..\..\extra\tensorflow-r1.4;..\..\extra\tensorflow-r1.4\external\zlib_archive;..\..\extra\tensorflow-r1.4\external\gif_archive\giflib-5.1.4;..\..\extra\tensorflow-r1.4\external\png_archive;..\..\extra\tensorflow-r1.4\external\eigen_archive;..\..\extra\tensorflow-r1.4\external\jpeg_archive;..\..\extra\tensorflow-r1.4\third_party\eigen3;..\..\extra\tensorflow-r1.4\gemmlowp\src\gemmlowp;..\..\extra\tensorflow-r1.4\jsoncpp\src\jsoncpp;..\..\extra\tensorflow-r1.4\external\farmhash_archive;..\..\extra\tensorflow-r1.4\external\farmhash_archive\util;..\..\extra\tensorflow-r1.4\external\highwayhash;..\..\extra\tensorflow-r1.4\third_party\gpus;..\..\extra\tensorflow-r1.4\tensorflow\contrib\cmake\build\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_ITERATOR_DEBUG_LEVEL=0;EIGEN_AVOID_STL_ARRAY;NOMINMAX;_WIN32_WINNT=0x0A00;LANG_CXX11;COMPILER_MSVC;OS_WIN;_MBCS;WIN64;WIN32_LEAN_AND_MEAN;NOGDI;PLATFORM_WINDOWS;TENSORFLOW_USE_EIGEN_THREADPOOL;EIGEN_HAS_C99_MATH;TF_COMPILE_LIBRARY;GOOGLE_CUDA=1;TF_EXTRA_CUDA_CAPABILITIES=3.0,3.5,5.2;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <DisableSpecificWarnings>4267;4244;4800;4503;4554;4996;4348;4018;4099;4146;4267;4305;4307;4715;4722;4723;4838;4309;4334</DisableSpecificWarnings>
       <UseFullPaths>true</UseFullPaths>
       <CompileAs>CompileAsCpp</CompileAs>
-      <AdditionalOptions>%(AdditionalOptions)  /bigobj</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions)  /bigobj </AdditionalOptions>
       <StringPooling>true</StringPooling>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\..\extra\tensorflow-r1.4\lib\;$(OPENCV340)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>tensorflow.lib;libprotobuf.lib;opencv_world340.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\glog-0.3.5\x64\Debug;D:\OpenCV\opencv\build\x64\vc14\lib;..\..\extra\tensorflow-r1.4\lib\;$(OPENCV340)\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tensorflow.lib;libprotobuf.lib;opencv_world340.lib;libglog.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>..\lib\tf_label_image_example.lib</ImportLibrary>
       <SubSystem>Console</SubSystem>

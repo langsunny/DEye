@@ -16,6 +16,8 @@ limitations under the License.
 #ifndef TENSORFLOW_FRAMEWORK_TYPES_H_
 #define TENSORFLOW_FRAMEWORK_TYPES_H_
 
+
+
 #include <map>
 #include <set>
 #include <string>
@@ -36,6 +38,7 @@ limitations under the License.
 #include "tensorflow/core/lib/gtl/inlined_vector.h"
 #include "tensorflow/core/platform/logging.h"
 #include "tensorflow/core/platform/types.h"
+
 
 namespace tensorflow {
 

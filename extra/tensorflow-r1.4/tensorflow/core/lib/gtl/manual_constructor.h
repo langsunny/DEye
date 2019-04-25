@@ -32,6 +32,10 @@ limitations under the License.
 #include "tensorflow/core/platform/macros.h"
 #include "tensorflow/core/platform/mem.h"
 
+#define COMPILER_MSVC
+#define NOMINMAX
+
+
 namespace tensorflow {
 namespace gtl {
 namespace internal {

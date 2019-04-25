@@ -57,6 +57,9 @@ limitations under the License.
 #endif
 
 // Control visiblity outside .so
+
+#define COMPILER_MSVC    //2019.4.23   loangxianli
+
 #if defined(COMPILER_MSVC)
 #ifdef TF_COMPILE_LIBRARY
 #define TF_EXPORT __declspec(dllexport)
